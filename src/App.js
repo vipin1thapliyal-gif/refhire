@@ -711,8 +711,8 @@ return (
 <div style={s.app}>
 <nav style={s.nav}>
 <div style={s.logo}>
-<span style={s.logoAccent}>Ref</span>Hire
-<span style={{ background: COLORS.teal + "22", color: COLORS.tealLight, fontSize: 10, borderRadius: 4, padding: "2px 6px", fontWeight: 600 }}>PHARMA</span>
+<span style={s.logoAccent}>ZENKO
+<span style={{ background: COLORS.teal + "22", color: COLORS.tealLight, fontSize: 10, borderRadius: 4, padding: "2px 6px", fontWeight: 600 }}>JOBS</span>
 </div>
 <div style={s.navTabs}>
 {[["jobs", "Jobs"], ["referrers", "Referrers"], ["pricing", "Pricing"]].map(([key, label]) => (
