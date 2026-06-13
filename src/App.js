@@ -711,7 +711,7 @@ return (
 <div style={s.app}>
 <nav style={s.nav}>
 <div style={s.logo}>
-<span style={s.logoAccent}>ZEN</span></span>KO</span> 
+ZENKO
 <span style={{ background: COLORS.teal + "22", color: COLORS.tealLight, fontSize: 10, borderRadius: 4, padding: "2px 6px", fontWeight: 600 }}>JOBS</span>
 </div>
 <div style={s.navTabs}>
