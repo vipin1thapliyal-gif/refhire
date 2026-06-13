@@ -413,12 +413,39 @@ return data.content?.[0]?.text || "Could not generate cover letter.";
 }
 
 function JobCard({ job, onApply }) {
-const initials = job.company.slice(0, 2).toUpperCase();
+const domainMap = {
+"IQVIA": "iqvia.com",
+"Axtria": "axtria.com",
+"GlobalData": "globaldata.com",
+"Novartis GCC": "novartis.com",
+"ZS Associates": "zs.com",
+};
+const domain = domainMap[job.company];
+const logoUrl = domain ? `https://logo.clearbit.com/${domain}` : null;
+
 return (
 <div style={s.jobCard(job.isHot)}>
 {job.isHot && <span style={s.hotBadge}>🔥 Hot</span>}
 <div style={s.jobTop}>
-<div style={s.companyIcon}>{initials}</div>
+<div style={{
+...s.companyIcon,
+background: logoUrl ? COLORS.white : COLORS.navy,
+border: logoUrl ? `1.5px solid ${COLORS.border}` : "none",
+overflow: "hidden",
+padding: 4,
+}}>
+{logoUrl ? (
+<img
+src={logoUrl}
+alt={job.company}
+style={{ width: "100%", height: "100%", objectFit: "contain" }}
+onError={(e) => { e.target.style.display = "none"; e.target.parentNode.innerText = job.company.slice(0,2).toUpperCase(); }}
+/>
+) : (
+job.company.slice(0, 2).toUpperCase()
+)}
+</div>
+
 <div>
 <div style={s.jobTitle}>{job.title}</div>
 <div style={s.jobMeta}>{job.company} · {job.location} · {job.type}</div>
