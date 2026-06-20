@@ -384,6 +384,7 @@ width: "100%", marginTop: 14,
 }),
 };
 
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf7yZQubVUhsvYI5IzopEXzHuX_yB6aIYYJmZCA1QODORh0Kw/viewform"; 
 async function generateCoverLetter(job, candidate) {
 const response = await fetch("https://api.anthropic.com/v1/messages", {
 method: "POST",
@@ -464,7 +465,7 @@ job.company.slice(0, 2).toUpperCase()
 </div>
 <div style={s.cardFooter}>
 <span style={s.postedDate}>Posted {job.postedDate}</span>
-<button style={s.applyBtn} onClick={() => onApply(job)}>Apply with Referral →</button>
+<button style={s.applyBtn} onClick={() => window.open(GOOGLE_FORM_URL + "?usp=pp_url&entry.job=" + encodeURIComponent(job.title + " at " + job.company), "_blank")}>Apply with Referral →</button>
 </div>
 </div>
 );
